@@ -76,10 +76,14 @@ html{
         outline: none;
         text-transform: uppercase;  
         color: white;
+        transition: .5s all ease-in-out;
             & span{
                 @media screen and(max-width:420px){
                     display: none;
                 }
+            }
+            &:hover{
+                background-color: #001d9ec0;
             }
     }
     &__nav{
@@ -104,6 +108,29 @@ html{
                 text-decoration: none;
             }
         }
+    }
+    &__nav-list-item{
+        @media screen and (max-width:768px) {
+            display: none;
+        }
+    }
+    &__burger{
+        width: 48px;
+        height: 48px;
+        &:hover~.header__nav-list-item{
+            display: block;
+        }
+        &:hover{
+            display: none;
+        }
+        @media screen and (min-width:769px) {
+            display: none;
+            }
+        
+    }
+    &__burger-img{
+        width: 48px;
+        height: 48px;
     }
     &__scroll{
         position: absolute;
@@ -150,6 +177,9 @@ html{
         font-weight: 500;
         text-align: center;
         margin: 0;
+        @media screen and (max-width:576px) {
+            display: none;
+        }
     }
     
 }
@@ -207,9 +237,15 @@ font-weight: 300;
     font-size: 16px;
     border: 0;
     letter-spacing: 1px;
+    transition: .5s all ease-in-out;
     @media screen and (max-width: 520px){
         width: 160px;
     }
+&:hover{
+    background-color: #001d9ec0;
+    border: 1px #5474fd dashed;
+    font-size: 19px;
+}
 }
 .block__shell{
     padding:30px;
@@ -242,6 +278,29 @@ font-weight: 300;
         position: relative;
         right: 130px;
         margin-bottom: 5px;
+        transition: ease-in-out 1s all;
+        &--right{
+            transition: ease-in-out 1s all;
+            &:hover{
+                z-index: 100;
+                border: 1px solid rgba(255, 255, 255, 0.658);
+                box-shadow: 0 0 20px rgba(0, 0, 0, 0.74);
+            transform: translateX(-130px) scale(1.3,1.3);
+            @media screen and (max-width:992px){
+                transform: translateX(0);
+                
+            } 
+        }
+        }
+        &:hover{
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.726);
+            z-index: 100;
+            border: 1px solid rgba(255, 255, 255, 0.658);
+            transform: translateX(130px) scale(1.3,1.3);
+            @media screen and (max-width:992px){
+                transform: translateX(0);
+            }
+        }
         @media screen and (max-width:992px){
             position: static;
         }
@@ -295,12 +354,18 @@ font-weight: 300;
         background-size: cover;
         padding-bottom: 100px;
         padding-top: 230px;
+        @media screen and (max-width:768px){
+            padding-top:100px
+        }
     }
     &-container-2{
         background-size: cover;
         padding-bottom: 100px;
         padding-top: 230px;
         background-image: url(./img/card-2-bg.png);
+        @media screen and (max-width:768px){
+            padding-top:100px
+        }
     }
     &__block{
         height: 371px;
@@ -321,6 +386,9 @@ font-weight: 300;
         background-size: cover;
         background-image: url(./img/comments-bg.png);
         background-repeat: no-repeat;
+        @media screen and (max-width:768px){
+            padding-bottom:100px
+        }
     }
     &__photo{
         max-width: 100%;
@@ -345,8 +413,22 @@ font-weight: 300;
 
 .footer{
     &-container{
-        padding-top: 80px;
+        padding-top: 100px;
         padding-bottom: 50px;
         background-color: #232323;
     }
-}
+    &__title{
+        color: white;
+        font-size: 24px;
+        @include JosefinSans;
+        letter-spacing: 2px;
+    }
+    &__social-img{
+        margin-left: 10px;
+        margin-right: 10px;
+        &:hover{
+            filter: brightness(70%);
+            cursor: pointer;
+        }
+    }
+}   
